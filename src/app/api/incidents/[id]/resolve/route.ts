@@ -1,18 +1,13 @@
 // src/app/api/incidents/[id]/resolve/route.ts
+
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '../../../../lib/db';
 
-type Context = {
-  params: {
-    id: string;
-  };
-};
-
 export async function PATCH(
   req: NextRequest,
-  { params }: Context
+  context: { params: { id: string } }
 ) {
-  const { id } = params;
+  const { id } = context.params;
 
   if (!id || isNaN(Number(id))) {
     return NextResponse.json({ error: 'Invalid ID' }, { status: 400 });
