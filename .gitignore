@@ -9,8 +9,14 @@
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
-prisma/dev.db
-prisma/migrations/
+
+
+/prisma/dev.db/
+/prisma/migrations/
+
+
+
+
 # testing
 /coverage
 
@@ -41,4 +47,4 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-/src/generated/prisma
+
