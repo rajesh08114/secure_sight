@@ -7,15 +7,17 @@ export async function PATCH(
   req: NextRequest,
   { params }: { params: { id: string } }
 ) {
-  const { id }:any = params.id;
+  const id = params.id;
 
   if (!id || isNaN(Number(id))) {
     return NextResponse.json({ error: 'Invalid ID' }, { status: 400 });
   }
 
+  const incidentId = parseInt(id, 10);
+
   try {
     const updated = await prisma.incident.update({
-      where: { id: parseInt(id, 10) },
+      where: { id: incidentId },
       data: { resolved: true },
       include: { camera: true },
     });
