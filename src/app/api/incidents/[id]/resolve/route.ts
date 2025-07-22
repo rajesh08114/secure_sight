@@ -5,7 +5,7 @@ import prisma from '../../../../lib/db';
 
 export async function PATCH(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: { id: number } }
 ) {
   const id = params.id;
 
@@ -13,11 +13,11 @@ export async function PATCH(
     return NextResponse.json({ error: 'Invalid ID' }, { status: 400 });
   }
 
-  const incidentId = parseInt(id, 10);
+  
 
   try {
     const updated = await prisma.incident.update({
-      where: { id: incidentId },
+      where: { id: id },
       data: { resolved: true },
       include: { camera: true },
     });
