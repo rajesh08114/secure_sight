@@ -16,7 +16,9 @@ const IncidentPlayer = ({ incident, relatedIncidents }: IncidentPlayerProps) => 
           {incident.camera.location} - {incident.type}
         </h2>
         <div className="relative pt-[56.25%] bg-black rounded-md overflow-hidden">
-          <img
+          <Image
+            width={640}
+            height={360}
             src={incident.thumbnailUrl} // Placeholder, replace with actual video URL
             style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
             className="absolute top-0 left-0 w-full h-full object-cover"
