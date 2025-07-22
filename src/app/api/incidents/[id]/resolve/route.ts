@@ -1,19 +1,29 @@
+// app/api/incidents/[id]/resolve/route.ts
+
 import { NextResponse } from 'next/server';
-import prisma from '../../../../lib/db';
+import prisma from '../../../../lib/db'; // adjust this import to your actual db path
+import type { NextRequest } from 'next/server';
 
 export async function PATCH(
-  request: Request,
-  { params }: { params: { id: string } }
+  req: NextRequest,
+  context: {  params: { id: string } }
 ) {
-  const id = parseInt(params.id);
-  
-  const incident = await prisma.incident.update({
-    where: { id },
-    data: { resolved: true },
-    include: {
-      camera: true,
-    },
-  });
+ 
+  const { id } = await context.params;
 
-  return NextResponse.json(incident);
+  if (!id || isNaN(Number(id))) {
+    return NextResponse.json({ error: 'Invalid ID' }, { status: 400 });
+  }
+
+  try {
+    const updated = await prisma.incident.update({
+      where: { id: parseInt(id) },
+      data: { resolved: true },
+      include: { camera: true },
+    });
+
+    return NextResponse.json(updated);
+  } catch (error) {
+    return NextResponse.json({ error: 'Update failed' }, { status: 500 });
+  }
 }

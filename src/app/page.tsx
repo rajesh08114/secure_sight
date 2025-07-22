@@ -32,6 +32,7 @@ export default function Home() {
 
   const handleIncidentResolve = async (id: number) => {
     try {
+      
       const response = await fetch(`/api/incidents/${id}/resolve`, {
         method: 'PATCH',
       });

@@ -20,7 +20,7 @@ const IncidentList = ({ incidents, onIncidentResolve, onIncidentSelect }: Incide
   return (
     <div className="bg-white rounded-lg shadow-md p-4">
       <h2 className="text-xl font-semibold mb-4">Recent Incidents</h2>
-      <div className="space-y-3">
+      <div className="space-y-3 overflow-scroll h-[700px]">
         {incidents.map((incident) => (
           <div
             key={incident.id}

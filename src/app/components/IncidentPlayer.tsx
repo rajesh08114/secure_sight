@@ -1,6 +1,6 @@
 import React from 'react';
 import { IncidentWithCamera } from '../types';
-import Link from 'next/link';
+
 
 type IncidentPlayerProps = {
   incident: IncidentWithCamera;
