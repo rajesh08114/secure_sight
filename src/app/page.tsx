@@ -11,11 +11,13 @@ export default function Home() {
   const [selectedIncident, setSelectedIncident] = useState<IncidentWithCamera | null>(null);
   const [loading, setLoading] = useState(true);
 
+  
+
   useEffect(() => {
     const fetchIncidents = async () => {
       try {
         const response = await fetch('/api/incidents?resolved=false');
-        const data:any = await response.json();
+        const data:IncidentWithCamera[] = await response.json();
         setIncidents(data);
         if (data.length > 0 && !selectedIncident) {
           setSelectedIncident(data[0]);
