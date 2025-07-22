@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { IncidentWithCamera } from '../types';
 import ThreatIcons from './icons/ThreatIcons';
+import Image from 'next/image';
 
 type IncidentListProps = {
   incidents: IncidentWithCamera[];
@@ -29,8 +30,20 @@ const IncidentList = ({ incidents, onIncidentResolve, onIncidentSelect }: Incide
             }`}
           >
             <div className="flex items-center space-x-3">
+
               <div className="flex-shrink-0">
                 <ThreatIcons type={incident.type} />
+
+              </div>
+              <div>
+                <Image
+                  width={88}
+                  height={88}
+                  src={incident.thumbnailUrl} // Placeholder, replace with actual camera thumbnail URL
+                  alt={`Camera at ${incident.camera.location}`}
+                  className=" rounded-md object-cover"
+                  
+                />
               </div>
               <div className="flex-1 min-w-0">
                 <p

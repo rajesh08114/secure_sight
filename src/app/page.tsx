@@ -28,7 +28,7 @@ export default function Home() {
     };
 
     fetchIncidents();
-  }, []);
+  }, [selectedIncident]);
 
   const handleIncidentResolve = async (id: number) => {
     try {
@@ -36,7 +36,7 @@ export default function Home() {
       const response = await fetch(`/api/incidents/${id}/resolve`, {
         method: 'PATCH',
       });
-      const updatedIncident = await response.json();
+      await response.json();
 
       setIncidents(incidents.filter((inc) => inc.id !== id));
       setSelectedIncident((current) => 

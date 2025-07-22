@@ -1,5 +1,6 @@
 import React from 'react';
 import { IncidentWithCamera } from '../types';
+import Image from 'next/image';
 
 
 type IncidentPlayerProps = {
@@ -30,7 +31,10 @@ const IncidentPlayer = ({ incident, relatedIncidents }: IncidentPlayerProps) => 
           <div key={inc.id} className="w-1/2  p-2 bg-gray-100 rounded-md shadow-sm">
             
               <h3 className="text-lg font-medium">{inc.type}</h3>
-            <img
+            <Image
+
+              width={200}
+              height={100}
               src={inc.thumbnailUrl} // Placeholder, replace with actual thumbnail URL
               alt={`Thumbnail for ${inc.type}`}
               className="w-full h-24 object-cover rounded-md"
