@@ -15,7 +15,7 @@ export default function Home() {
     const fetchIncidents = async () => {
       try {
         const response = await fetch('/api/incidents?resolved=false');
-        const data = await response.json();
+        const data:any = await response.json();
         setIncidents(data);
         if (data.length > 0 && !selectedIncident) {
           setSelectedIncident(data[0]);

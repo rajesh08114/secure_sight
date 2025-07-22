@@ -21,7 +21,8 @@ export async function PATCH(
     });
 
     return NextResponse.json(updated);
-  } catch (error) {
+  } catch (e) {
+    console.error('Error updating incident:', e);
     return NextResponse.json({ error: 'Update failed' }, { status: 500 });
   }
 }
