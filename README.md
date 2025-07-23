@@ -36,25 +36,6 @@ Here's the enhanced `README.md` incorporating all requested sections:
    ```
 
 
-```
-Build and run:
-```bash
-docker build -t secure-sight .
-docker run -p 3000:3000 secure-sight
-```
-
-## ⏳ If I Had More Time...
-- **Live Streaming**: WebSockets for real-time video feeds
-- **Advanced Filtering**: Date ranges, threat type filters
-- **User Auth**: JWT authentication for multi-user support
-- **Export Reports**: PDF generation of incident logs
-- **Enhanced UI**: 
-  - Heatmaps of incident hotspots
-  - Camera grouping by location
-- **Performance**:
-  - Infinite scrolling for incident list
-  - React Virtualized for large datasets
-
 ## 📦 Installation & Setup
 ```bash
 git clone https://github.com/yourusername/secure-sight.git
