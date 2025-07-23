@@ -5,7 +5,7 @@ import prisma from '../../../../lib/db';
 
 export async function PATCH(
   req: NextRequest,
-  { params } : { params: { id: string } }
+  { params } : { params: Promise<{ id: string }> }
 ) {
   const paramss = await params;
   const id = paramss.id;
