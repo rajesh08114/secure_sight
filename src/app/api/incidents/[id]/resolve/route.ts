@@ -5,9 +5,9 @@ import prisma from '../../../../lib/db';
 
 export async function PATCH(
   req: NextRequest,
-  { params } : { params: { id: string } }
+  { params } : { params: Promise<{ id: string }> }
 ) {
-  const id = await params.id;
+  const id = await params;
 
   if (!id || isNaN(Number(id))) {
     return NextResponse.json({ error: 'Invalid ID' }, { status: 400 });
