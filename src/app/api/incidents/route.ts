@@ -18,7 +18,7 @@ export async function GET(request: Request) {
       include: { camera: true },
       orderBy: { tsStart: 'desc' },
     });
-    console.log("Fetched incidents:", incidents);
+    
     return NextResponse.json(incidents);
     
   } catch (error) {

@@ -5,19 +5,24 @@ import prisma from '../../../../lib/db';
 
 export async function PATCH(
   req: NextRequest,
-  { params } : { params: Promise<{ id: string }> }
+  { params } : { params: { id: string } }
 ) {
-  const id = await params;
+  const paramss = await params;
+  const id = paramss.id;
+
+ 
 
   if (!id || isNaN(Number(id))) {
     return NextResponse.json({ error: 'Invalid ID' }, { status: 400 });
   }
 
-  const incidentId = Number(id);
+  const incidentId = parseInt(id, 10);
+ 
+  
 
   try {
     const updated = await prisma.incident.update({
-      where: { id: incidentId },
+      where: { id: incidentId},
       data: { resolved: true },
       include: { camera: true },
     });
