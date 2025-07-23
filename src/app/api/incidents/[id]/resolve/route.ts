@@ -7,7 +7,7 @@ export async function PATCH(
   req: NextRequest,
   { params }: { params: { id: number } }
 ) {
-  const id = params.id;
+  const id = await params.id;
 
   if (!id || isNaN(Number(id))) {
     return NextResponse.json({ error: 'Invalid ID' }, { status: 400 });
