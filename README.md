@@ -15,8 +15,8 @@ Here's the enhanced `README.md` incorporating all requested sections:
 ## 🛠️ Tech Stack & Decisions
 | Technology | Choice | Rationale |
 |------------|--------|-----------|
-| Framework | Next.js 15 (App Router) | Optimal SSR, API routes, and React 18 features |
-| Database | SQLite (Prisma) | Simple setup for local development, easy file-based storage |
+| Framework | Next.js 15 (App Router) | Optimal SSR, API routes, and React  features |
+| Database | Postgresql (Prisma) | Simple setup for local development, easy file-based storage |
 | ORM | Prisma | Type-safe database client with intuitive migrations |
 | Styling | Tailwind CSS | Rapid UI development with responsive utilities |
 | Deployment | Vercel | Native Next.js support with seamless CI/CD |
@@ -28,7 +28,7 @@ Here's the enhanced `README.md` incorporating all requested sections:
 2. Create new project at [vercel.com/new](https://vercel.com/new)
 3. Add environment variable:
    ```env
-   DATABASE_URL="file:./dev.db"
+   DATABASE_URL="postgresql uri"
    ```
 4. Enable "Override build command":
    ```bash
@@ -54,10 +54,7 @@ npx prisma migrate reset --force
 rm -rf prisma/migrations
 ```
 
-**Windows Permissions**
-```powershell
-icacls prisma\dev.db /grant "Everyone:F"
-```
+
 
 
 
